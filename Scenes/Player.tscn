@@ -273,5 +273,4 @@ frames = SubResource( 7 )
 animation = "front_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 1 )
 shape = SubResource( 53 )
