@@ -4,7 +4,7 @@
 [ext_resource path="res://Graphics/tilesets/RF_Catacombs_v1.0/torch_1.png" type="Texture" id=2]
 [ext_resource path="res://Graphics/tilesets/RF_Catacombs_v1.0/torch_4.png" type="Texture" id=3]
 [ext_resource path="res://Graphics/tilesets/RF_Catacombs_v1.0/torch_2.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Torch.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Torch.gd" type="Script" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -15,7 +15,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 8.0
+radius = 4.48718
 
 [node name="Torch" type="StaticBody2D"]
 scale = Vector2( 1.56, 1.56 )
@@ -26,5 +26,5 @@ frames = SubResource( 1 )
 animation = "Torch"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2( 0, 3.84615 )
 shape = SubResource( 2 )

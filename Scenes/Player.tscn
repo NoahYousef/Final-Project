@@ -274,3 +274,13 @@ animation = "front_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 53 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+show_behind_parent = true
+current = true
+zoom = Vector2( 0.65, 0.65 )
+limit_left = -10000
+limit_top = -10000
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
