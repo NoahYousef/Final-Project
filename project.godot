@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Final Project"
-run/main_scene="res://MAIN_GAME.tscn"
+run/main_scene="res://Scenes/MAIN_GAME.tscn"
 config/icon="res://Graphics/icon.png"
 
 [display]
@@ -76,6 +76,12 @@ ui_down={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="environment"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemy"
 
 [physics]
 
