@@ -677,7 +677,22 @@ position = Vector2( -23, -40 )
 position = Vector2( 22, -40 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( -778, -28 )
+position = Vector2( -782, 43 )
+
+[node name="Zombie" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( -679, 139 )
+
+[node name="Zombie2" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( -475, 171 )
+
+[node name="Zombie4" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( -597, 337 )
+
+[node name="Zombie5" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( -67, 256 )
+
+[node name="Zombie3" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( -385, -91 )
 
 [node name="TileMap" type="TileMap" parent="YSort"]
 position = Vector2( -896, -192 )
@@ -695,8 +710,5 @@ script = ExtResource( 9 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossEntrance"]
 position = Vector2( 896, 141.5 )
 shape = SubResource( 15 )
-
-[node name="Zombie" parent="." instance=ExtResource( 10 )]
-position = Vector2( 220, 326 )
 
 [connection signal="body_entered" from="BossEntrance" to="." method="_on_BossEntrance_body_entered"]
