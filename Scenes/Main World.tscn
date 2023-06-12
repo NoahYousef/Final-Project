@@ -354,6 +354,7 @@ points = PoolVector2Array( 24, 48, 28, 48, 36, 48, 44, 52, 44, 60, 20, 60, 20, 5
 extents = Vector2( 17, 11.5 )
 
 [node name="Main_Map" type="Node2D"]
+scale = Vector2( 1, 1.00089 )
 script = ExtResource( 8 )
 
 [node name="Floor" type="TileMap" parent="."]

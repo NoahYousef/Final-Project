@@ -1,26 +1,16 @@
 extends Area2D
 
-var current = load("res://Scripts/Player.gd").new()
-onready var anim = get_parent().get_node("anim")
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
 
 
-func attack():
-	if direction == "right":
-		anim.flip_h = false
-		anim.play("side_attack")
-		print("attack")
-		
-	if direction == "left":
-		anim.flip_h = true
-		anim.play("side_attack")
-		print("attack")
-		
-	if direction == "down":
-		anim.flip_h = true
-		anim.play("front_walk")
-		print("attack")
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
 
-	if direction == "up":
-		anim.flip_h = true
-		anim.play("back_walk")
-		print("attack")
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
