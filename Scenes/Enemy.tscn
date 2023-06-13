@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Graphics/characters/Zombie/Death.png" type="Texture" id=1]
 [ext_resource path="res://Graphics/characters/Zombie/Attack.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Graphics/characters/Zombie/Walk.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Zombie.gd" type="Script" id=5]
 [ext_resource path="res://Hurtbox_Hitbox/HurtBox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemy_Stats.tscn" type="PackedScene" id=7]
 
 [sub_resource type="AtlasTexture" id=61]
 atlas = ExtResource( 2 )
@@ -132,7 +133,7 @@ animations = [ {
 "frames": [ SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ) ],
 "loop": true,
 "name": "side_attack",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [ SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ) ],
 "loop": true,
@@ -147,7 +148,7 @@ animations = [ {
 "frames": [ SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ) ],
 "loop": true,
 "name": "side_walk",
-"speed": 7.0
+"speed": 8.0
 } ]
 
 [sub_resource type="CircleShape2D" id=92]
@@ -157,9 +158,11 @@ radius = 9.0
 radius = 50.0
 
 [sub_resource type="CapsuleShape2D" id=94]
+radius = 11.0
 height = 10.0
 
 [node name="Zombie" type="KinematicBody2D"]
+position = Vector2( 0, -12 )
 collision_layer = 4
 collision_mask = 7
 script = ExtResource( 5 )
@@ -167,10 +170,11 @@ script = ExtResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 91 )
 animation = "side_walk"
-frame = 8
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 2, 8 )
+visible = false
+position = Vector2( 0, 7 )
 shape = SubResource( 92 )
 
 [node name="Detection" type="Area2D" parent="."]
@@ -181,13 +185,20 @@ collision_mask = 2
 shape = SubResource( 93 )
 
 [node name="HurtBox" parent="." instance=ExtResource( 6 )]
+position = Vector2( -2, 0 )
+collision_layer = 32
+collision_mask = 0
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2( 2, 3 )
 shape = SubResource( 94 )
 
+[node name="Enemy_Stats" parent="." instance=ExtResource( 7 )]
+max_health = 3
+
 [connection signal="body_entered" from="Detection" to="." method="_on_Detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_Detection_body_exited"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="no_health" from="Enemy_Stats" to="." method="_on_Enemy_Stats_no_health"]
 
 [editable path="HurtBox"]
