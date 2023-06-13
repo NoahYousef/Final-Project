@@ -10,10 +10,10 @@ var current_dir = "none"
 var in_combat = false
 
 onready var anim := $AnimatedSprite
-onready var weapon = $weapon
+onready var animplayer := $AnimationPlayer
 
 func _ready():
-	$AnimatedSprite.play("front_idle")
+	anim.play("front_idle")
 
 
 
@@ -57,7 +57,6 @@ func player_movement(delta):
 
 func play_animation(movement):
 	var direction = current_dir
-	var anim = $AnimatedSprite
 	
 	if direction == "right":
 		anim.flip_h = false
