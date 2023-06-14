@@ -43,7 +43,7 @@ func _on_Detection_body_entered(body):
 	player = body
 
 
-func _on_Detection_body_exited(body):
+func _on_Detection_body_exited(player):
 	player = null
 	anim.play("side_idle")
 

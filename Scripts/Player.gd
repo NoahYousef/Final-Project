@@ -140,3 +140,9 @@ func _on_HurtBox_area_entered(area):
 	stats.health -= 1
 	hurtBox.start_invincibility(0.5)
 	hurtBox.create_hit_effect()
+
+
+
+
+func take_damage(amount):
+	stats.health -= amount
