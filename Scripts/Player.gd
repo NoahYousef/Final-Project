@@ -8,22 +8,27 @@ var drag_factor := 0.3
 var velocity := Vector2.ZERO
 var current_dir = "none"
 var in_combat = false
+var stats = PlayerStats
+
+
 
 onready var anim := $AnimatedSprite
 onready var animplayer := $AnimationPlayer
 onready var swordHitbox = $SwordHitbox
+onready var hurtBox = $HurtBox
+
 
 
 func _ready():
+	stats.connect("no_health", self, "queue_free")
 	anim.play("front_idle")
-
 
 
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
 	attack()
-	
-	
+
+
 func player_movement(delta):
 	var direction := Vector2.ZERO
 	if in_combat == false:
@@ -114,7 +119,6 @@ func attack():
 			$SwordHitbox/down.disabled = false
 			anim.play("front_attack")
 			print("attack d") 
-	
 
 
 func _on_AnimatedSprite_animation_finished():
@@ -128,3 +132,11 @@ func _on_AnimatedSprite_animation_finished():
 	if anim.animation == "back_attack":
 		in_combat = false
 		$SwordHitbox/up.disabled = true
+
+
+
+
+func _on_HurtBox_area_entered(area):
+	stats.health -= 1
+	hurtBox.start_invincibility(0.5)
+	hurtBox.create_hit_effect()

@@ -11,4 +11,4 @@ func _ready():
 func _on_BossEntrance_body_entered(body):
 	pass # Replace with function body.
 	print(body)
-	get_tree().change_scene("res://Scenes/Boss Arena.tscn")	
+	get_tree().change_scene("res://Scenes/World/Boss Arena.tscn")	

@@ -1,35 +1,35 @@
 [gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://Graphics/characters/Zombie/Death.png" type="Texture" id=1]
-[ext_resource path="res://Effect.gd" type="Script" id=2]
+[ext_resource path="res://Effect.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/characters/Zombie/Death.png" type="Texture" id=2]
 [ext_resource path="res://Graphics/Explosion.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 0, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 32, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 64, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 96, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 128, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 160, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 192, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=19]
@@ -84,4 +84,4 @@ animations = [ {
 position = Vector2( 0, -13 )
 frames = SubResource( 18 )
 animation = "death_effect"
-script = ExtResource( 2 )
+script = ExtResource( 1 )

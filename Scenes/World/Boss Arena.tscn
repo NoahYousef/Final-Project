@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Graphics/tilesets/RF_Catacombs_v1.0/mainlevbuild.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Candle 1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/World/Candle 1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Boss Arena.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Gate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/World/Gate.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Graphics/tilesets/RF_Catacombs_v1.0/decorative.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Enemy/Boss.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/HealthUI.tscn" type="PackedScene" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "mainlevbuild.png 0"
@@ -395,3 +397,8 @@ scale = Vector2( 1.36001, 1.36001 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 500, 574 )
+
+[node name="Boss" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 498, 228 )
+
+[node name="HealthUI" parent="." instance=ExtResource( 8 )]

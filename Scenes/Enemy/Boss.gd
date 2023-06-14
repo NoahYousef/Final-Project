@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-const EnemyDeathEffect = preload("res://Scenes/Enemy/EnemyDeathEffect.tscn")
+const BossDeathEffect = preload("res://Scenes/Enemy/BossDeathEffect.tscn")
 
 
-var speed = 50
+var speed = 10
 var motion = Vector2.ZERO
 var knockback = Vector2.ZERO
 var player = null
@@ -16,7 +16,7 @@ onready var hurtbox = $HurtBox
 
 
 func _ready():
-	anim.play("side_idle")
+	anim.play("idle")
 	print(stats.max_health)
 	print(stats.health)
 
@@ -28,7 +28,7 @@ func _physics_process(delta):
 	motion = Vector2.ZERO
 	if player:
 		motion = position.direction_to(player.position) * speed
-		anim.play("side_walk")
+		anim.play("idle")
 		if (player.position.x - position.x) < 0:
 			anim.flip_h = true
 		elif (player.position.x - position.x) > 0:
@@ -45,15 +45,15 @@ func _on_Detection_body_entered(body):
 
 func _on_Detection_body_exited(body):
 	player = null
-	anim.play("side_idle")
+	anim.play("idle")
 
 func _on_HurtBox_area_entered(area):
 	stats.health -= area.damage
-	knockback = area.knockback_vector * 100
+	knockback = area.knockback_vector * 60
 	hurtbox.create_hit_effect()
 
 func _on_Enemy_Stats_no_health():
 	queue_free()
-	var enemyDeathEffect = EnemyDeathEffect.instance()
-	get_parent().add_child(enemyDeathEffect)
-	enemyDeathEffect.global_position = global_position
+	var bossDeathEffect = BossDeathEffect.instance()
+	get_parent().add_child(bossDeathEffect)
+	bossDeathEffect.global_position = global_position

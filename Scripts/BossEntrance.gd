@@ -13,4 +13,4 @@ func _on_Area2D_body_exited(body):
 
 func _process(delta):
 	if entered == true:
-		get_tree().change_scene("res://Scenes/Boss Arena.tscn")	
+		get_tree().change_scene("res://Scenes/World/Boss Arena.tscn")	
