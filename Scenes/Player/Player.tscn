@@ -330,19 +330,19 @@ tracks/0/keys = {
 radius = 6.0
 
 [sub_resource type="CapsuleShape2D" id=61]
-radius = 9.0
+radius = 7.0
 height = 10.0
 
 [sub_resource type="CapsuleShape2D" id=62]
-radius = 9.0
+radius = 7.0
 height = 10.0
 
 [sub_resource type="CapsuleShape2D" id=63]
-radius = 8.99998
+radius = 6.99998
 height = 10.0
 
 [sub_resource type="CapsuleShape2D" id=64]
-radius = 8.99998
+radius = 6.99998
 height = 10.0
 
 [sub_resource type="CapsuleShape2D" id=65]

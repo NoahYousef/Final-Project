@@ -1,39 +1,7 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Graphics/Mecha-stone Golem 0.1/weapon PNG/Laser_sheet.png" type="Texture" id=1]
 [ext_resource path="res://Laser.gd" type="Script" id=2]
-
-[sub_resource type="AtlasTexture" id=140]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 100, 300, 100 )
-
-[sub_resource type="AtlasTexture" id=141]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 200, 300, 100 )
-
-[sub_resource type="AtlasTexture" id=142]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 300, 300, 100 )
-
-[sub_resource type="AtlasTexture" id=143]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 400, 300, 100 )
-
-[sub_resource type="AtlasTexture" id=144]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 500, 300, 100 )
-
-[sub_resource type="AtlasTexture" id=145]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 600, 300, 100 )
-
-[sub_resource type="AtlasTexture" id=146]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 700, 300, 100 )
-
-[sub_resource type="AtlasTexture" id=147]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 800, 300, 100 )
 
 [sub_resource type="AtlasTexture" id=148]
 atlas = ExtResource( 1 )
@@ -93,7 +61,7 @@ region = Rect2( 0, 800, 300, 100 )
 
 [sub_resource type="SpriteFrames" id=138]
 animations = [ {
-"frames": [ SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ), SubResource( 148 ), SubResource( 149 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ) ],
+"frames": [ SubResource( 148 ), SubResource( 149 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ) ],
 "loop": true,
 "name": "laser_attack",
 "speed": 15.0
