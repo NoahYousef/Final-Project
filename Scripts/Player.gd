@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 #set constants
 export var SPEED := 100.0
+#const GameOverScreen = preload("res://Scenes/GameOverScreen.tscn")
+
 
 #set variables
 var drag_factor := 0.3
@@ -18,6 +20,8 @@ onready var swordHitbox = $SwordHitbox
 onready var hurtBox = $HurtBox
 
 
+signal player_dead
+
 
 func _ready():
 	stats.connect("no_health", self, "queue_free")
@@ -27,7 +31,6 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
 	attack()
-
 
 func player_movement(delta):
 	var direction := Vector2.ZERO
@@ -140,9 +143,18 @@ func _on_HurtBox_area_entered(area):
 	stats.health -= 1
 	hurtBox.start_invincibility(0.5)
 	hurtBox.create_hit_effect()
-
-
+	print("took damage")
+	is_player_dead()
 
 
 func take_damage(amount):
+	print("take damage")
 	stats.health -= amount
+	is_player_dead()
+
+
+func is_player_dead():
+	if stats.health == 0:
+		stats.health = stats.max_health
+		get_tree().change_scene("res://Scenes/GameOverScreen.tscn")
+	

@@ -213,10 +213,14 @@ max_health = 10
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 4.0
 
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="body_entered" from="Detection" to="." method="_on_Detection_body_entered"]
 [connection signal="body_exited" from="Detection" to="." method="_on_Detection_body_exited"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="no_health" from="Enemy_Stats" to="." method="_on_Enemy_Stats_no_health"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
 
 [editable path="HurtBox"]

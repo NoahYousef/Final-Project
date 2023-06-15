@@ -26,7 +26,7 @@ func _physics_process(delta):
 	knockback = move_and_slide(knockback)
 	
 	motion = Vector2.ZERO
-	if player:
+	if is_instance_valid(player):
 		motion = position.direction_to(player.position) * speed
 		anim.play("side_walk")
 		if (player.position.x - position.x) < 0:

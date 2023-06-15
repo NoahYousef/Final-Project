@@ -14,6 +14,8 @@ onready var anim = $AnimatedSprite
 onready var stats = $Enemy_Stats
 onready var hurtbox = $HurtBox
 onready var laser_spawn = $AnimatedSprite/Position2D
+onready var death_timer = $DeathTimer
+
 
 
 func _ready():
@@ -25,7 +27,7 @@ func _physics_process(delta):
 	motion = Vector2.ZERO
 	if player == null:
 		return
-	elif player:
+	elif is_instance_valid(player):
 		motion = position.direction_to(player.position) * speed
 		anim.play("idle")
 		if (player.position.x - position.x) < 0:
@@ -58,13 +60,22 @@ func _on_Enemy_Stats_no_health():
 	var bossDeathEffect = BossDeathEffect.instance()
 	get_parent().add_child(bossDeathEffect)
 	bossDeathEffect.global_position = global_position
+	death_timer.start()
+
+
+func _on_DeathTimer_timeout():
+	pass #run game over screen
+
+
+
 
 
 func _on_AttackTimer_timeout():
 	if player == null:
 		return
 	shoot_laser()
-	
+
+
 
 func shoot_laser():
 	var laser = preload("res://Scenes/Enemy/Laser.tscn").instance()
@@ -77,8 +88,10 @@ func shoot_laser():
 
 func rotate_to_target():
 	var target_angle := PI / 2
-	if player:
+	if is_instance_valid(player):
 		target_angle = player.global_position.angle_to_point(global_position)
 		target_rotation = target_angle
+
+
 
 
