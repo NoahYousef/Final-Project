@@ -428,6 +428,6 @@ scale = Vector2( 1.36001, 1.36001 )
 position = Vector2( 500, 574 )
 
 [node name="Boss" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 498, 228 )
+position = Vector2( 497, 228 )
 
 [node name="HealthUI" parent="." instance=ExtResource( 8 )]

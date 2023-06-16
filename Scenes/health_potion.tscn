@@ -1,0 +1,48 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Graphics/32x32 In-Game Items Asset Pack/BigHealthPotionMoving2.png" type="Texture" id=1]
+[ext_resource path="res://Graphics/32x32 In-Game Items Asset Pack/BigHealthPotionMoving4.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/32x32 In-Game Items Asset Pack/BigHealthPotionMoving3.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/32x32 In-Game Items Asset Pack/BigHealthPotionMoving1.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/health_potion.gd" type="Script" id=5]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "potion_idle",
+"speed": 8.0
+} ]
+
+[sub_resource type="CircleShape2D" id=6]
+
+[node name="health_potion" type="AnimatedSprite"]
+scale = Vector2( 0.600002, 0.600002 )
+frames = SubResource( 5 )
+animation = "potion_idle"
+script = ExtResource( 5 )
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2( 1, 1 )
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 6 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
